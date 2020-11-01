@@ -4,6 +4,35 @@ type RequestBiz interface {
 	ServicePath() string
 }
 
+type QrcodeReverseResponseV2Biz struct {
+	ReturnCode    int    `json:"-"`
+	ReturnMsg     string `json:"return_msg"`
+	MsgID         string `json:"msg_id"`
+	OutTradeNo    string `json:"out_trade_no"`
+	OrderID       string `json:"order_id"`
+	CustID        string `json:"cust_id"`
+	RejectNo      string `json:"reject_no"`
+	RealRejectAmt string `json:"real_reject_amt"`
+	RejectAmt     string `json:"reject_amt"`
+	RejectPoint   string `json:"reject_point"`
+	RejectEcoupon string `json:"reject_ecoupon"`
+	CardNo        string `json:"card_no"`
+}
+
+type QrcodeReverseRequestV2Biz struct {
+	MerID      string `json:"mer_id"`
+	CustID     string `json:"cust_id"`
+	OutTradeNo string `json:"out_trade_no"`
+	OrderID    string `json:"order_id"`
+	RejectNo   string `json:"reject_no"`
+	RejectAmt  string `json:"reject_amt"`
+	OperID     string `json:"oper_id"`
+}
+
+func (QrcodeReverseRequestV2Biz) ServicePath() string {
+	return "/api/qrcode/V2/reverse"
+}
+
 type QrcodeQueryResponseV2Biz struct {
 	ReturnCode   int    `json:"-"`
 	ReturnMsg    string `json:"return_msg"`
